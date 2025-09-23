@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 function App() {
   const [ taskState, setTaskState ] = useState({
     tasks: [
-      { id: 1, title:"Dishes", description: "Empty dishwasher", deadline: "Today", level: "Small", done: false },
+      { id: 1, title:"Dishes", description: "Empty dishwasher", deadline: "Today", level: "Low", done: false },
       { id: 2, title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow", level: "Medium", done: false },
       { id: 3, title: "Tidy", deadline: "Today", level: "High", done: false}
     ]
@@ -52,14 +52,15 @@ function App() {
           form.deadline = event.target.value;
           break;
       case "level":
-          form.deadline = event.target
+          form.level = event.target.value;
+          break;
       default:
           form = formState;
     }
     setFormState(form);
 
   }
-  console.log(formState);
+  
 
     const formSubmitHandler = (event) => {
     event.preventDefault();
